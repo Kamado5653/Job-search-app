@@ -5,7 +5,7 @@ import useApi from "./useApi";
 async function getJobs() {
   const resp = await fetch("http://localhost:7000/jobs");
   if (resp.status != 200) {
-    throw Error(resp.statusText);
+    throw Error(str(resp.status) + " | " + resp.statusText);
   }
   return resp.json();
 }
